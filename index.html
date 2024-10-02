@@ -119,6 +119,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference external" href="https://datafusion.apache.org/blog/">
+   Blog
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference external" href="https://github.com/apache/datafusion/blob/main/CODE_OF_CONDUCT.md">
    Code of conduct
   </a>
@@ -143,6 +148,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="user-guide/example-usage.html">
    Example Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="user-guide/crate-configuration.html">
+   Crate Configuration
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -270,6 +280,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="user-guide/explain-usage.html">
+   Reading Explain Plans
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="user-guide/faq.html">
    Frequently Asked Questions
   </a>
@@ -284,6 +299,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="library-user-guide/index.html">
    Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="library-user-guide/extensions.html">
+   Extensions List
   </a>
  </li>
  <li class="toctree-l1">
@@ -337,6 +357,11 @@
    Profiling Cookbook
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="library-user-guide/query-optimizer.html">
+   DataFusion Query Optimizer
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -355,8 +380,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="contributor-guide/getting_started.html">
+   Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="contributor-guide/architecture.html">
    Architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributor-guide/testing.html">
+   Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="contributor-guide/howtos.html">
+   HOWTOs
   </a>
  </li>
  <li class="toctree-l1">
@@ -365,13 +405,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributor-guide/quarterly_roadmap.html">
-   Quarterly Roadmap
+  <a class="reference internal" href="contributor-guide/governance.html">
+   Governance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="contributor-guide/governance.html">
-   Governance
+  <a class="reference internal" href="contributor-guide/inviting.html">
+   Inviting New Committers and PMC Members
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -478,15 +518,26 @@
   <a class="github-button" href="https://github.com/apache/datafusion" data-size="large" data-show-count="true" aria-label="Star apache/datafusion on GitHub">Star</a>
   <!-- Place this tag where you want the button to render. -->
    <a class="github-button" href="https://github.com/apache/datafusion/fork" data-size="large" data-show-count="true" aria-label="Fork apache/datafusion on GitHub">Fork</a>
-</p><p>DataFusion is a very fast, extensible query engine for building high-quality data-centric systems in
-<a class="reference external" href="http://rustlang.org">Rust</a>, using the <a class="reference external" href="https://arrow.apache.org">Apache Arrow</a>
-in-memory format.</p>
-<p>DataFusion offers SQL and Dataframe APIs, excellent
-<a class="reference external" href="https://benchmark.clickhouse.com">performance</a>, built-in support for
-CSV, Parquet, JSON, and Avro, extensive customization, and a great
-community.</p>
-<p>The <a class="reference external" href="user-guide/example-usage.html">example usage</a> section in the user guide and the <a class="reference external" href="https://github.com/apache/datafusion/tree/main/datafusion-examples">datafusion-examples</a> code in the crate contain information on using DataFusion.</p>
-<p>Please see the <a class="reference external" href="contributor-guide/index.html#developer-s-guide">developer’s guide</a> for contributing and <a class="reference external" href="contributor-guide/communication.html">communication</a> for getting in touch with us.</p>
+</p><p>DataFusion is an extensible query engine written in <a class="reference external" href="http://rustlang.org">Rust</a> that
+uses <a class="reference external" href="https://arrow.apache.org">Apache Arrow</a> as its in-memory format. DataFusion’s target users are
+developers building fast and feature rich database and analytic systems,
+customized to particular workloads. See <a class="reference external" href="https://datafusion.apache.org/user-guide/introduction.html#use-cases">use cases</a> for examples.</p>
+<p>“Out of the box,” DataFusion offers <a class="reference external" href="https://datafusion.apache.org/user-guide/sql/index.html">SQL</a>
+and <a class="reference external" href="https://docs.rs/datafusion/latest/datafusion/dataframe/struct.DataFrame.html">Dataframe</a> APIs,
+excellent <a class="reference external" href="https://benchmark.clickhouse.com/">performance</a>, built-in support for CSV, Parquet, JSON, and Avro,
+extensive customization, and a great community.
+<a class="reference external" href="https://github.com/apache/datafusion-python">Python Bindings</a> are also available.</p>
+<p>DataFusion features a full query planner, a columnar, streaming, multi-threaded,
+vectorized execution engine, and partitioned data sources. You can
+customize DataFusion at almost all points including additional data sources,
+query languages, functions, custom operators and more.
+See the <a class="reference external" href="https://datafusion.apache.org/contributor-guide/architecture.html">Architecture</a> section for more details.</p>
+<p>To get started, see</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="user-guide/example-usage.html">example usage</a> section of the user guide and the <a class="reference external" href="https://github.com/apache/datafusion/tree/main/datafusion-examples">datafusion-examples</a> directory.</p></li>
+<li><p>The <a class="reference external" href="library-user-guide/index.html">library user guide</a> for examples of using DataFusion’s extension APIs</p></li>
+<li><p>The <a class="reference external" href="contributor-guide/index.html#developer-s-guide">developer’s guide</a> for contributing and <a class="reference external" href="contributor-guide/communication.html">communication</a> for getting in touch with us.</p></li>
+</ul>
 <div class="toctree-wrapper compound" id="toc-asf-links">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ASF Links</span></p>
 <ul>
@@ -503,6 +554,7 @@ community.</p>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/apache/datafusion">GitHub and Issue Tracker</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://crates.io/crates/datafusion">crates.io</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://docs.rs/datafusion/latest/datafusion/">API Docs</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://datafusion.apache.org/blog/">Blog</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/apache/datafusion/blob/main/CODE_OF_CONDUCT.md">Code of conduct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download</a></li>
 </ul>
@@ -512,11 +564,13 @@ community.</p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/example-usage.html">Example Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/crate-configuration.html">Crate Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/cli/index.html">DataFusion CLI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/dataframe.html">DataFrame API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/expressions.html">Expression API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/sql/index.html">SQL Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/configs.html">Configuration Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/explain-usage.html">Reading Explain Plans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/faq.html">Frequently Asked Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user-guide/faq.html#how-does-datafusion-compare-with-xyz">How does DataFusion Compare with <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>?</a></li>
 </ul>
@@ -525,6 +579,7 @@ community.</p>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Library User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library-user-guide/extensions.html">Extensions List</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/using-the-sql-api.html">Using the SQL API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/working-with-exprs.html">Working with <code class="docutils literal notranslate"><span class="pre">Expr</span></code>s</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/using-the-dataframe-api.html">Using the DataFrame API</a></li>
@@ -535,6 +590,7 @@ community.</p>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/custom-table-providers.html">Custom Table Provider</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/extending-operators.html">Extending DataFusion’s operators: custom LogicalPlan and Execution Plans</a></li>
 <li class="toctree-l1"><a class="reference internal" href="library-user-guide/profiling.html">Profiling Cookbook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="library-user-guide/query-optimizer.html">DataFusion Query Optimizer</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound" id="toc-contributor-guide">
@@ -544,14 +600,18 @@ community.</p>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/index.html#developer-s-guide">Developer’s guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/index.html#reviewing-pull-requests">Reviewing Pull Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/communication.html">Communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide/getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide/testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide/howtos.html">HOWTOs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/roadmap.html">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributor-guide/quarterly_roadmap.html">Quarterly Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide/roadmap.html#quarterly-roadmap">Quarterly Roadmap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/governance.html">Governance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributor-guide/inviting.html">Inviting New Committers and PMC Members</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributor-guide/specification/index.html">Specifications</a></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound" id="id1">
+<div class="toctree-wrapper compound" id="toc-subprojects">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">DataFusion Subprojects</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://arrow.apache.org/ballista/">DataFusion Ballista</a></li>
@@ -596,7 +656,7 @@ community.</p>
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br>
 </p>
     </div>
     

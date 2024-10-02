@@ -120,6 +120,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference external" href="https://datafusion.apache.org/blog/">
+   Blog
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference external" href="https://github.com/apache/datafusion/blob/main/CODE_OF_CONDUCT.md">
    Code of conduct
   </a>
@@ -144,6 +149,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../example-usage.html">
    Example Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../crate-configuration.html">
+   Crate Configuration
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
@@ -271,6 +281,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../explain-usage.html">
+   Reading Explain Plans
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../faq.html">
    Frequently Asked Questions
   </a>
@@ -285,6 +300,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../../library-user-guide/index.html">
    Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../library-user-guide/extensions.html">
+   Extensions List
   </a>
  </li>
  <li class="toctree-l1">
@@ -338,6 +358,11 @@
    Profiling Cookbook
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../library-user-guide/query-optimizer.html">
+   DataFusion Query Optimizer
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -356,8 +381,23 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../../contributor-guide/getting_started.html">
+   Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../contributor-guide/architecture.html">
    Architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributor-guide/testing.html">
+   Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributor-guide/howtos.html">
+   HOWTOs
   </a>
  </li>
  <li class="toctree-l1">
@@ -366,13 +406,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../contributor-guide/quarterly_roadmap.html">
-   Quarterly Roadmap
+  <a class="reference internal" href="../../contributor-guide/governance.html">
+   Governance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../contributor-guide/governance.html">
-   Governance
+  <a class="reference internal" href="../../contributor-guide/inviting.html">
+   Inviting New Committers and PMC Members
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -691,8 +731,8 @@ parquet files and have compatible schemas</p>
 <p>Register a single file csv datasource with a header row.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">EXTERNAL</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">test</span>
 <span class="n">STORED</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">CSV</span>
-<span class="k">WITH</span><span class="w"> </span><span class="n">HEADER</span><span class="w"> </span><span class="k">ROW</span>
-<span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;/path/to/aggregate_test_100.csv&#39;</span><span class="p">;</span>
+<span class="k">LOCATION</span><span class="w"> </span><span class="s1">&#39;/path/to/aggregate_test_100.csv&#39;</span>
+<span class="k">OPTIONS</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;has_header&#39;</span><span class="w"> </span><span class="s1">&#39;true&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Register a single file csv datasource with explicitly defined schema.</p>
@@ -958,7 +998,7 @@ DataFusion<span class="w"> </span>CLI<span class="w"> </span>v21.0.0
     
     <div class="footer-item">
       <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 7.3.7.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br>
 </p>
     </div>
     
