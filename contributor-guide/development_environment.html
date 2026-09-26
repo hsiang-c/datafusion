@@ -44,6 +44,7 @@
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'contributor-guide/development_environment';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://datafusion.apache.org/contributor-guide/development_environment.html" />
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -252,6 +253,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/concepts-readings-events.html">Concepts, Readings, Events</a></li>
 
+
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/crate-configuration.html">Crate Configuration</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/cli/index.html">DataFusion CLI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../user-guide/cli/overview.html">Overview</a></li>
@@ -292,6 +294,7 @@
 
 
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/explain-usage.html">Reading Explain Plans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user-guide/parquet-content-defined-chunking.html">Parquet Content-Defined Chunking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/metrics.html">Metrics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user-guide/faq.html">Frequently Asked Questions</a></li>
 
@@ -300,6 +303,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../library-user-guide/index.html">Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../library-user-guide/upgrading/index.html">Upgrade Guides</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../library-user-guide/upgrading/56.0.0.html">DataFusion 56.0.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../library-user-guide/upgrading/55.0.0.html">DataFusion 55.0.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../library-user-guide/upgrading/54.0.0.html">DataFusion 54.0.0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../library-user-guide/upgrading/53.0.0.html">DataFusion 53.0.0</a></li>
@@ -336,6 +340,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
 
+<li class="toctree-l1"><a class="reference internal" href="pr_review.html">Reviewing Pull Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="communication.html">Community Communication</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Development Environment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
@@ -525,7 +530,7 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
 <li><p><code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">update</span> <span class="pre">stable</span></code> DataFusion generally uses the latest stable release of Rust, though it may lag when new Rust toolchains release</p>
 <ul>
 <li><p>See which toolchain is currently pinned in the <a class="reference external" href="https://github.com/apache/datafusion/blob/main/rust-toolchain.toml"><code class="docutils literal notranslate"><span class="pre">rust-toolchain.toml</span></code></a> file</p></li>
-<li><p>This can cause issues such as not having the rust-analyzer component installed for the specified toolchain, in which case just install it manually, e.g. <code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">component</span> <span class="pre">add</span> <span class="pre">--toolchain</span> <span class="pre">1.97.0</span> <span class="pre">rust-analyzer</span></code></p></li>
+<li><p>This can cause issues such as not having the rust-analyzer component installed for the specified toolchain, in which case just install it manually, e.g. <code class="docutils literal notranslate"><span class="pre">rustup</span> <span class="pre">component</span> <span class="pre">add</span> <span class="pre">--toolchain</span> <span class="pre">1.98.1</span> <span class="pre">rust-analyzer</span></code></p></li>
 </ul>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">cargo</span> <span class="pre">build</span></code></p></li>
@@ -549,6 +554,13 @@ libprotoc<span class="w"> </span><span class="m">3</span>.15.0
 <ul class="simple">
 <li><p><a class="reference download internal" download="" href="../_downloads/1e336e540124589d1e27210fa4f805f6/rust_lint.sh"><span class="xref download myst">dev/rust_lint.sh</span></a></p></li>
 </ul>
+<p>Debugging:</p>
+<p>The standard dev profile, used by cargo build and cargo test, disables variable-level DWARF debug information that is required by interactive debuggers.</p>
+<p>If you need to step through the code with a debugger, build with:</p>
+<p><code class="docutils literal notranslate"><span class="pre">CARGO_PROFILE_DEV_DEBUG=2</span> <span class="pre">cargo</span> <span class="pre">build</span></code></p>
+<p>Alternatively, you can set <code class="docutils literal notranslate"><span class="pre">CARGO_PROFILE_DEV_DEBUG=2</span></code> as an environment variable in your IDE.</p>
+<p>This enables the additional debug information required for source-level debugging.</p>
+<p>For more details, see the DataFusion <a class="reference external" href="https://github.com/apache/datafusion/blob/main/Cargo.toml#L329">Cargo.toml</a> configuration.</p>
 </section>
 </section>
 
